@@ -1,0 +1,37 @@
+﻿
+@model Produto;
+<h3 style="margin-top: 67px">Resumo do Pedido</h3>
+
+<div class="panel panel-default">
+    <div class="panel-body" style="height: 450px">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Nº do Produto: @(Model.Id)</h3>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Produto: @Model.Nome</h3>
+            </div>
+            <div class="col-md-4">
+                <h3>Valor: @Model.Valor</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Troco:</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    @foreach (var item in ViewBag.moedas)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

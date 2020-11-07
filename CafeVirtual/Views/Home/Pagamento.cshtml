@@ -1,0 +1,65 @@
+﻿@model Produto
+
+<!DOCTYPE html>
+<html>
+<body>
+    <main>
+        <input type="hidden" name="valor" id="valor" value="@Model.Valor" />
+        <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+        <input type="hidden" name="total" id="total" />
+        <input type="hidden" name="troco" id="troco" @Model.Troco/>
+        <input type="hidden" name="moeda" id="moeda" />
+
+        <section id="titulo">
+            <div class="py-1 px-2 mt-5">
+                <h4 class="text-center texto-cor-especial fonte-titulo mt-4">Pagamento Eletrônico</h4>
+                <p class="text-center text-secondary">@(Model.Nome) - R$<span id="valorProduto">@(Model.Valor)</span></p>
+            </div>
+        </section>
+        <section id="produtos" class="bg-light" style="height: 402px">
+            <div class="total container mb-4">
+                <div class="valor">R$<span id="totalProduto">0,00</span></div>
+            </div>
+            <div class="container">
+                <div id="alerta" class="alert alert-danger text-center" role="alert" style="display: none; padding-top: 15px; padding-bottom: 15px;"></div>
+            </div>
+            <div class="wrapper container mb-4">
+                <div class="box box2 text-center">Moeda Virtual</div>
+                <div class="box box1" id="required">
+                    <div class="nested">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1" checked>
+                        <label class="form-check-label" for="gridRadios1">R$1,00 real</label>
+                    </div>
+                    <div class="nested">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="0.50">
+                        <label class="form-check-label" for="gridRadios1">R$0,50 centavos</label>
+                    </div>
+                    <div class="nested">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="0.25">
+                        <label class="form-check-label" for="gridRadios1">R$0,25 centavos</label>
+                    </div>
+                    <div class="nested">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="0.10">
+                        <label class="form-check-label" for="gridRadios1">R$0,10 centavos</label>
+                    </div>
+                    <div class="nested">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="0.05">
+                        <label class="form-check-label" for="gridRadios1">R$0,05 centavos</label>
+                    </div>
+                    <div class="nested">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="0.01">
+                        <label class="form-check-label" for="gridRadios1">R$0,01 centavo</label>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="botoes">
+                        <button class="btn btn-primary btn-principal" onclick="main.inserir()">Inserir Moedas</button>
+                        <button type="submit" class="btn btn-primary" onclick="main.finalizar()">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="~/js/main.js"></script>
+</body>
+</html>
